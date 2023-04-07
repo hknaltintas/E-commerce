@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchproductList = async ({ pageParam = 2 }) => {
+export const fetchproductList = async ({ pageParam = 1 }) => {
   const { data } = await axios.get(
     `${process.env.REACT_APP_BASE_ENDPOINT}/product?page=${pageParam}`
   );

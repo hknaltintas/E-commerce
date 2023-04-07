@@ -15,10 +15,11 @@ function Products() {
     isFetching,
     isFetchingNextPage,
     status,
-  } = useInfiniteQuery("products", fetchproductList, {
+  } = useInfiniteQuery(["products"], fetchproductList, {
     getNextPageParam: (lastGroup, allGroups) => {
-      console.log("all",allGroups.length);
+      console.log("all", allGroups.length);
       const morePagesExist = lastGroup.length === 12;
+      console.log("morepage",morePagesExist);
       if (!morePagesExist) {
         return;
       }
