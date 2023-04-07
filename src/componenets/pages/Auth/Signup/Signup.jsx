@@ -8,10 +8,12 @@ import {
   FormLabel,
   Input,
   Button,
+  FormErrorMessage,
+  FormHelperText,
 } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
-import  validationSchema  from "./validations";
+import validationSchema from "./validations";
 function Signup() {
   const formik = useFormik({
     initialValues: {
@@ -20,7 +22,9 @@ function Signup() {
       passwordConfirm: "",
     },
     validationSchema,
-    onSubmit: async (values, bag) => {console.log(values);},
+    onSubmit: async (values, bag) => {
+      console.log(values);
+    },
   });
 
   return (
@@ -39,8 +43,11 @@ function Signup() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
+                  isInvalid={formik.touched.email && formik.errors.email}
+                  autoFocus
                 ></Input>
               </FormControl>
+
               <FormControl mt="4">
                 <FormLabel>Password</FormLabel>
                 <Input
@@ -49,8 +56,10 @@ function Signup() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
+                  isInvalid={formik.touched.password && formik.errors.password}
                 ></Input>
               </FormControl>
+
               <FormControl mt="4">
                 <FormLabel>Password Confirm</FormLabel>
                 <Input
@@ -59,8 +68,13 @@ function Signup() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.passwordConfirm}
+                  isInvalid={
+                    formik.touched.passwordConfirm &&
+                    formik.errors.passwordConfirm
+                  }
                 ></Input>
               </FormControl>
+
               <Button mt="4" w="full" type="submit">
                 Sign Up
               </Button>
