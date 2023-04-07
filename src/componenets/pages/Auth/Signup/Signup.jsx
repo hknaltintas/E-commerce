@@ -14,6 +14,9 @@ import {
 
 import { useFormik } from "formik";
 import validationSchema from "./validations";
+
+import { fetchRegister } from "../../../api";
+
 function Signup() {
   const formik = useFormik({
     initialValues: {
@@ -23,7 +26,11 @@ function Signup() {
     },
     validationSchema,
     onSubmit: async (values, bag) => {
-      console.log(values);
+      try {
+        const registerResponse=await fetchRegister({email:values.email,password:values.password})
+      } catch (e) {
+        
+      }
     },
   });
 
