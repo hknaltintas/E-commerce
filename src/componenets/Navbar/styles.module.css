@@ -1,0 +1,50 @@
+/*Nav*/
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px;
+  border-bottom: solid 1px #aaaaaa;
+  line-height: 2px;
+}
+
+/*Nav Left*/
+.nav .left {
+  display: flex;
+  align-items: center;
+}
+
+.nav .left li a {
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 1.1rem;
+  padding: 3px 16px;
+  display: block;
+}
+.nav .left li a:hover {
+  color: #000;
+}
+
+/*Nav Left*/
+.nav .right a:first-child {
+  margin-right: 5px;
+}
+
+.nav .right button {
+  padding: 18px 32px;
+  font-size: 16px;
+  background-color: #d53f8c;
+  color: #fefefe;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 0 20px #eee;
+  font-weight: 500;
+}
+
+.nav .right button:hover {
+  background-color: #b83280;
+}
+
+.logo {
+  font-weight: bold;
+}
