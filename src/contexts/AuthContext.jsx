@@ -8,6 +8,9 @@ const AuthProvider = ({ children }) => {
   const login = (data) => {
     setLoggedIn(true);
     setUser(data.user);
+
+    localStorage.getItem("access-token", data.accessToken);
+    localStorage.getItem("refresh-token", data.refreshToken);
   };
   const values = {
     loggedIn,
