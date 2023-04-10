@@ -17,14 +17,14 @@ function Products() {
     status,
   } = useInfiniteQuery(["products"], fetchproductList, {
     getNextPageParam: (lastGroup, allGroups) => {
-      console.log("all", allGroups.length);
+      console.log("allgrouplength", allGroups.length);
       const morePagesExist = lastGroup.length === 12;
-      console.log("morepage",morePagesExist);
+
       if (!morePagesExist) {
         return;
       }
-
-      return allGroups.lenght + 1;
+      
+      return allGroups.length + 1;
     },
   });
 
@@ -32,7 +32,6 @@ function Products() {
 
   if (status === "error") return "An error has occurred: " + error.message;
   console.log("data", data);
-
   return (
     <div>
       <Grid templateColumns="repeat(3, 1fr)" gap={3}>
