@@ -9,20 +9,17 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar/>
+        <Navbar />
 
-        
         <Routes>
-          <Route path="/" element={<Products/>} />
-          <Route path="/product/:product_id" element={<ProductDetail/>} />
-          <Route path="/signin" element={<Signin/>} />
-          <Route path="/signup" element={<Signup/>} />
+          <Route path="/" element={<Products />} />
+          <Route path="/product/:product_id" element={<ProductDetail />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </div>
     </Router>
   );
 }
-
-
 
 export default App;

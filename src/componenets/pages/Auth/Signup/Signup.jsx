@@ -16,7 +16,12 @@ import validationSchema from "./validations";
 
 import { fetchRegister } from "../../../api";
 
+import { useAuth } from "../../../../contexts/AuthContext";
+
 function Signup() {
+
+  const{login}=useAuth();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -30,6 +35,10 @@ function Signup() {
           email: values.email,
           password: values.password,
         });
+
+        console.log("register",registerResponse);
+        login(registerResponse)
+
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
       }
