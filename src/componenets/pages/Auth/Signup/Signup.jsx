@@ -18,9 +18,13 @@ import { fetchRegister } from "../../../api";
 
 import { useAuth } from "../../../../contexts/AuthContext";
 
+import { useNavigate } from "react-router-dom";
+
 function Signup() {
 
   const{login}=useAuth();
+
+  let navigate=useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -36,8 +40,9 @@ function Signup() {
           password: values.password,
         });
 
-        console.log("register",registerResponse);
+       
         login(registerResponse)
+        navigate("/profile")
 
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });

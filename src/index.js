@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 
 //context
 import { AuthProvider } from "./contexts/AuthContext";
+import { BasketProvider } from "./contexts/BasketContext";
 
 import reportWebVitals from "./reportWebVitals";
 const queryClient = new QueryClient({
@@ -25,7 +26,9 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
         <AuthProvider>
+        <BasketProvider>
           <App />
+        </BasketProvider>
         </AuthProvider>
       </ChakraProvider>
       <ReactQueryDevtools initialIsOpen={false} />

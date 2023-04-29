@@ -7,8 +7,11 @@ import ImageGallery from "react-image-gallery";
 
 import { fetchProduct } from "../../api";
 
+import { useBasket } from "../../../contexts/BasketContext";
+
 function ProductDetail() {
   const { product_id } = useParams();
+  const { addToBasket, baskets } = useBasket();
 
   const { isLoading, isError, data } = useQuery(["product", product_id], () =>
     fetchProduct(product_id)
@@ -21,14 +24,18 @@ function ProductDetail() {
     return <div>Error.</div>;
   }
 
-
+  const findBasketItem=baskets.find((baskets)=>baskets._id===product_id)
   const images = data.photos.map((url) => ({ original : url }));
 
   
 
   return (
     <div>
-      <Button  colorScheme="pink">Add to Basket</Button>
+      <Button  colorScheme={findBasketItem? "red" :"green"}  onClick={()=>addToBasket(data, findBasketItem)}>
+        {
+          findBasketItem ? "Remove from basket" : "Add to Basket"
+        }
+      </Button>
       <Text as="h2" fontSize="2xl">
         {data.title}
       </Text>
