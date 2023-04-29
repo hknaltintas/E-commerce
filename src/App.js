@@ -7,6 +7,8 @@ import Signup from "./componenets/pages/Auth/Signup/Signup";
 import Products from "./componenets/pages/Products/index";
 import ProductDetail from "./componenets/pages/ProductDetail/index";
 import Profile from "./componenets/pages/Profile/index";
+import Basket from "./componenets/pages/Basket/index";
+import Eror404 from "./componenets/pages/Eror404/index";
 
 import ProtectedRoute from "./componenets/pages/ProtectedRoute";
 function App() {
@@ -16,14 +18,18 @@ function App() {
         <Navbar />
 
         <Routes>
+
           <Route path="/" element={<Products />} />
           <Route path="/product/:product_id" element={<ProductDetail />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/basket" element={<Basket />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<Profile />} />
           </Route>
+          <Route path="*" element={<Eror404/>}/>
+          
         </Routes>
       </div>
     </Router>
