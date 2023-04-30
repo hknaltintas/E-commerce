@@ -36,28 +36,22 @@ function Basket() {
   } = useDisclosure();
   const initialRef = useRef(null);
   const [address, setAddress] = useState();
-  
 
   const total = baskets.reduce((acc, obj) => acc + obj.price, 0);
 
   const handleSubmitForm = async () => {
-    
-    
     const itemIds = baskets.map((basket) => basket._id);
     const input = {
       address,
       items: JSON.stringify(itemIds),
     };
-    
 
     await postOrder(input);
     onOrderClose();
     onSuccOpen();
-    setTimeout(()=>emptyBasket(),2000);
-    
-    
+    setTimeout(() => emptyBasket(), 2000);
   };
-    
+
   return (
     <Box p="5">
       {baskets.length < 1 && (
@@ -134,14 +128,12 @@ function Basket() {
             <ModalOverlay />
             <ModalContent>
               <ModalHeader>Succsessfuly</ModalHeader>
-              
+
               <ModalBody justifyContent="center" alignItems="center">
-                <Text >Ordered Successfuly</Text>
+                <Text>Ordered Successfuly</Text>
               </ModalBody>
 
-              <ModalFooter>
-                
-              </ModalFooter>
+              <ModalFooter></ModalFooter>
             </ModalContent>
           </Modal>
         </>
