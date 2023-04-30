@@ -7,7 +7,7 @@ import { useBasket } from "../../contexts/BasketContext";
 import { Button } from "@chakra-ui/react";
 
 function Navbar() {
-  const { loggedIn } = useAuth();
+  const { loggedIn, user } = useAuth();
   const { baskets } = useBasket();
 
   return (
@@ -42,6 +42,13 @@ function Navbar() {
                 <Button colorScheme="pink" variant="outline">Basket {baskets.length} </Button>
                 </Link>
 
+              }
+              {
+                user?.role ==="admin" && (
+                  <Link to="/admin">
+                    <Button colorScheme="pink" variant="ghost">Admin</Button>
+                  </Link>
+                )
               }
               <Link to="profile">
                 <Button colorScheme="pink" >Profile</Button >
