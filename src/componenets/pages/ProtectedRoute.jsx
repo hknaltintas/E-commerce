@@ -1,17 +1,17 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 function ProtectedRoute({ admin }) {
   const { loggedIn, user } = useAuth();
+  const location = useLocation();
 
   if (admin && user?.role !== "admin") {
-    return <Navigate to="/" />;
+    return <Navigate to="/signin" state={{ from: location }} replace />;
   }
 
   if (!loggedIn) {
-    console.log("giris yapildi logdin");
-    return <Navigate to="/signin" />;
+    return <Navigate to="/signin" state={{ from: location }} replace />;
   }
 
   return <Outlet />;

@@ -33,7 +33,6 @@ root.render(
           </BasketProvider>
         </AuthProvider>
       </ChakraProvider>
-
     </QueryClientProvider>
   </>
 );

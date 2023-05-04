@@ -37,21 +37,22 @@ function Navbar() {
 
           {loggedIn && (
             <>
-              {
-                baskets.length>0 && <Link to="/basket">
-                <Button colorScheme="pink" variant="outline">Basket {baskets.length} </Button>
+              {baskets.length > 0 && (
+                <Link to="/basket">
+                  <Button colorScheme="pink" variant="outline">
+                    Basket {baskets.length}{" "}
+                  </Button>
                 </Link>
-
-              }
-              {
-                user?.role ==="admin" && (
-                  <Link to="/admin">
-                    <Button colorScheme="pink" variant="ghost">Admin</Button>
-                  </Link>
-                )
-              }
+              )}
+              {user?.role === "admin" && (
+                <Link to="/admin">
+                  <Button colorScheme="pink" variant="ghost">
+                    Admin
+                  </Button>
+                </Link>
+              )}
               <Link to="profile">
-                <Button colorScheme="pink" >Profile</Button >
+                <Button colorScheme="pink">Profile</Button>
               </Link>
             </>
           )}

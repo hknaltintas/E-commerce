@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Routes, Route, useLocation } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 import Home from "./Home/index";
 import Products from "./Products/index";
@@ -8,8 +8,8 @@ import Orders from "./Orders/index";
 import "./style.css";
 
 function Admin() {
-  const { pathname } = useLocation();
-  console.log("pathname", pathname);
+ 
+  
 
   return (
     <div>
@@ -38,4 +38,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default React.memo(Admin);
